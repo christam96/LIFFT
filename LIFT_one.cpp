@@ -2,7 +2,7 @@
 #include <opencv2/tracking.hpp>
 #include <opencv2/core/ocl.hpp>
 
-// Includes for mouse function
+// Includes for mouse call back function
 #include "opencv2/highgui/highgui.hpp"
 #include <iostream>
 
@@ -20,9 +20,10 @@ if(!video.isOpened()) {
     return -1;
 }
 
+//
 Color array = new old_gray[];
 
-// Mouse function segment
+// Mouse function segment - Retrieved from: https://stackoverflow.com/questions/15570431/opencv-return-value-from-mouse-callback-function
 Point p;
 nameWindow("window");
 setMouseCallBack("window", mouseCallBack, (void*)(&p));
@@ -39,7 +40,7 @@ void mouseCallBack(int event, int x, int y, int flags, void* userdata)
 
 /**
 
-DO NOT NEED ANYMORE: 
+DO NOT NEED ANYMORE:
 
 // Parameters for goodFeaturesToTrack() function, which initializes a point-based tracker of an object
 vector<Point2f> corners;
