@@ -13,8 +13,12 @@ VideoCapture video(videoPath);
 // Exit if video is not opened
 if(!video.isOpened()) {
     cout << "Could not read video file" << endl;
-    return 1;
+    return -1;
 }
+
+Color array = new old_gray[];
+
+
 
 // Parameters for goodFeaturesToTrack() function, which initializes a point-based tracker of an object
 vector<Point2f> corners;
@@ -29,8 +33,14 @@ Size winSize = (15,15),
 int maxLevel = 2,
 TermCriteria criteria = (cv.TERM_CRITERIA_EPS | cv.TERM_CRITERIA_COUNT, 10, 0.05)
 
-// Assign tracking points random colour
+// Assign tracking points colour of red
 Color c = Color().Red;
 
-// Get first frame of video
+// Get first frame of video and find corners in it
 bool ret, old_frame = video.read;
+
+for (;;) {
+  Mat frame;
+  video >> frame; // get a new frame from camera
+  cvtColor(frame, edges, COLOR_BGR2GRAY);
+}
