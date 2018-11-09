@@ -52,10 +52,12 @@ int main (int argc) {
 
         for (size_t i = j = 0; i < points[1].size(); i++) {
           if (pointClicked == true) {
-              if (norm())
-
-          }
+            points[1][j++] = points[1][i];
+            circle(currentColourImage, points[1][i], 3, Scalar(255,255,0), -1, 8);
         }
+
+        points[1].resize(j);
+
       }
       imshow("Lifting Video", currentColourImage);
 
@@ -72,14 +74,14 @@ int main (int argc) {
         return -1;
     }
 **/
-
+/**
     Color array = new old_gray[]; // Was originally going to be used to hold frames, do not need anymore???
 
     // Mouse function segment - Retrieved from: https://stackoverflow.com/questions/15570431/opencv-return-value-from-mouse-callback-function
     Point p;
     nameWindow("window");
     setMouseCallBack("window", mouseCallBack, (void*)(&p));
-
+**/
 
 
     /**
@@ -98,7 +100,7 @@ int main (int argc) {
 
 
     // Parameters for calcOpticalFlowPyrLK() function, which uses the Lucas Kanade method to track objects
-    Size winSize = (15,15),
+/**    Size winSize = (15,15),
     int maxLevel = 2,
     TermCriteria criteria = (cv.TERM_CRITERIA_EPS | cv.TERM_CRITERIA_COUNT, 10, 0.05)
 
@@ -109,7 +111,7 @@ int main (int argc) {
     bool ret, old_frame = video.read;
     old_gray = cvtColor(frame, edges, COLOR_BGR2GRAY);
 }
-
+**/
 
 // Function to retrieve x, y coordinates of left-click
 void onMouseClick(int event, int x, int y, int flags, void* userdata)
