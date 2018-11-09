@@ -49,6 +49,13 @@ int main (int argc) {
           // circle(colourScreenshot, pointArray[1])
         }
         calcOpticalFlowPyrLK(previousGreyImage, currentGreyImage, pointArray[0], pointArray[1], status, error, windowSize, 0, criteria, 0, 0.001);
+
+        for (size_t i = j = 0; i < points[1].size(); i++) {
+          if (pointClicked == true) {
+              if (norm())
+
+          }
+        }
       }
       imshow("Lifting Video", currentColourImage);
 
