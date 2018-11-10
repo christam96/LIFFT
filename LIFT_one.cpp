@@ -28,7 +28,7 @@ int main (int argc) {
     TermCriteria criteria(TermCriteria::COUNT|TermCriteria::EPS,10,0.03);
     Size windowSize(50,50);
     namedWindow("Lifting Video", 1); // Flag 1 autosized lifting video window
-    setMouseCallBack("Lifing Video", onMouseClick);
+    setMouseCallback("Lifting Video", onMouseClick, 0);
 
     Mat colourScreenshot, currentColourImage, currentGreyImage, previousGreyImage;
     vector<Point2f> pointArray[2];
