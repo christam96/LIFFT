@@ -14,7 +14,6 @@
 
 using namespace cv;
 using namespace std;
-using namespace Colors;
 
 // GLOBAL VARIABLES
 Point2f point;
@@ -28,7 +27,7 @@ int main (int argc) {
     video.open(videoPath);  // Opens video
     TermCriteria criteria(TermCriteria::COUNT|TermCriteria::EPS,10,0.03);
     Size windowSize(50,50);
-    namedWindow("Lifting Video", 1) // Flag 1 autosized lifting video window
+    namedWindow("Lifting Video", 1); // Flag 1 autosized lifting video window
     setMouseCallBack("Lifing Video", onMouseClick);
 
     Mat colourScreenshot, currentColourImage, currentGreyImage, previousGreyImage;
@@ -50,20 +49,23 @@ int main (int argc) {
         }
         calcOpticalFlowPyrLK(previousGreyImage, currentGreyImage, pointArray[0], pointArray[1], status, error, windowSize, 0, criteria, 0, 0.001);
 
-        for (size_t i = j = 0; i < points[1].size(); i++) {
-          if (pointClicked == true) {
-            points[1][j++] = points[1][i];
-            circle(currentColourImage, points[1][i], 3, Scalar(255,255,0), -1, 8);
+        size_t j;
+
+        for (size_t i = j = 0; i < pointArray[1].size(); i++) {
+          pointArray[1][j++] = pointArray[1][i];
+          circle(currentColourImage, points[1][i], 3, Scalar(255,255,0), -1, 8);
         }
 
         points[1].resize(j);
 
       }
+
       imshow("Lifting Video", currentColourImage);
 
       swap(pointArray[0],pointArray[1]);
       currentGreyImage.copyTo(previousGreyImage);
     }
+  }
 
 
 
