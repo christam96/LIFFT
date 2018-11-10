@@ -11,6 +11,7 @@
 // Includes for mouse call back function
 #include "opencv2/highgui/highgui.hpp"
 #include <iostream>
+#include <ctype.h>
 
 using namespace cv;
 using namespace std;
